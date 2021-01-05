@@ -1,0 +1,21 @@
+name: Build My Application
+
+on: push
+
+jobs:
+  build:
+    name: Build our App
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull Code
+        uses: actions/checkout@v2
+      - name: Print Current Directory
+        run: pwd
+      - name: List Files in Directory
+        run: ls
+      - name: Check Dotnet Cli
+        run: dotnet build
+      - name: List Files in Directory
+        run: ls 
+      - name: Check NPM Cli
+        run: npm -v
