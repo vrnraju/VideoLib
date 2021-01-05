@@ -21,7 +21,7 @@ namespace VideosLibrary
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllersWithViews();
+            services.AddControllers();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -49,12 +49,13 @@ namespace VideosLibrary
             app.UseSpaStaticFiles();
 
             app.UseRouting();
+            
+
+
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
+                endpoints.MapDefaultControllerRoute();
             });
 
             app.UseSpa(spa =>
